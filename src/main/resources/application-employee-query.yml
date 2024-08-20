@@ -1,0 +1,3 @@
+employeequeries:
+   select: select id as id, Name as name,dept as dept from employeedetail;
+      
