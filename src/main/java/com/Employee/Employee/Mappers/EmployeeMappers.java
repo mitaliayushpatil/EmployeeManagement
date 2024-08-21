@@ -16,8 +16,6 @@ import com.Employee.Employee.Rest.Dto.EmployeeDto;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 @Component
-@NoArgsConstructor
-@Setter
 public class EmployeeMappers {
 
 	public Employee entitytoDomain(EmployeeDetail entity)

@@ -28,6 +28,7 @@
 	</scm>
 	<properties>
 		<java.version>17</java.version>
+		 <spring-cloud.version>2024.0.0-M1</spring-cloud.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -91,26 +92,24 @@
     <artifactId>jakarta.validation-api</artifactId>
     <version>3.0.2</version>
 </dependency>
-		<!--<dependency>
-		    <groupId>org.apache.maven</groupId>
-		    <artifactId>maven-repository-metadata</artifactId>
-		    <version>3.9.6</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.springframework</groupId>
-		    <artifactId>spring-jdbc</artifactId>
-		    <version>6.1.10</version>
-		</dependency>
-		
-<dependency>
-    <groupId>org.springframework.data</groupId>
-    <artifactId>spring-data-commons</artifactId>
-    <version>3.3.1</version>
-</dependency>
--->
+	 <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+    </dependency>
+    
 
 	</dependencies>
-
+ <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>${spring-cloud.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 	<build>
 		<plugins>
 			<plugin>

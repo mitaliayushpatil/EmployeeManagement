@@ -6,12 +6,13 @@ import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.Employee.Employee.Core.Employee;
 import com.Employee.Employee.Mappers.EmployeeMappers;
 import com.Employee.Employee.Port.EmployeePort;
 import com.Employee.Employee.Repository.EmployeeRepository;
-
+@Component
 public class EmployeePortImpl implements EmployeePort{
 
 	@Autowired
