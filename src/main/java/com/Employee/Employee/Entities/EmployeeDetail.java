@@ -6,9 +6,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -29,7 +29,15 @@ public class EmployeeDetail {
 	@Column(name="Name")
 	private String name;
 	
-	@Column(name="dept")
-	private String dept;
+	@Column(name="hotelId")
+	private Integer hotelId;
+	
+	@Column(name="deptId")
+	private Integer deptId;
+	
+	@Column(name="gender")
+	private String gender;
 
+	@Transient
+	private Department dept = new Department();
 }

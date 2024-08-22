@@ -1,12 +1,15 @@
 package com.Employee.Employee.Service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Service;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.client.RestTemplate;
 
-import com.Employee.Employee.Core.Employee;
-
-@Service
+@Configuration
 public class EmployeeCustomService {
 	
+	@Bean
+	public RestTemplate restTemplate()
+	{
+		return new RestTemplate();
+	}
 }

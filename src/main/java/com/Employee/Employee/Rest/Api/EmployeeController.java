@@ -16,7 +16,7 @@ import io.swagger.v3.oas.annotations.Operation;
 
 @RestController
 @Validated
-@RequestMapping("/api/employee")
+@RequestMapping("/api")
 public class EmployeeController {
 	
 	@Autowired
@@ -31,7 +31,7 @@ public class EmployeeController {
 			)
 	@EmployeesAnnotations
 	@CommonResponses
-	@GetMapping(path="/allEmployees")
+	@GetMapping(path="/Employee")
 	public EmployeesResponse getEmployees()
 	{
 		return EmployeesResponse.builder()

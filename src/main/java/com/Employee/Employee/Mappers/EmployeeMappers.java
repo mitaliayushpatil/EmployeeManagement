@@ -1,29 +1,33 @@
 package com.Employee.Employee.Mappers;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Spliterator;
-import java.util.Spliterators;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
-import java.util.stream.StreamSupport;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.Employee.Employee.Core.Employee;
+import com.Employee.Employee.Entities.Department;
 import com.Employee.Employee.Entities.EmployeeDetail;
 import com.Employee.Employee.Rest.Dto.EmployeeDto;
-
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.Employee.Employee.Service.EmployeeCustomService;
 @Component
 public class EmployeeMappers {
 
+	@Autowired
+	private EmployeeCustomService config;
+	
 	public Employee entitytoDomain(EmployeeDetail entity)
 	{
+		Department outputObject = config.restTemplate().getForObject("http://localhost:8082/api/Hotel/Department/"+entity.getDeptId(), Department.class);
 		return new Employee().builder()
 				.id(entity.getId())
 				.name(entity.getName())
-				.dept(entity.getDept())
+				.hotelId(entity.getHotelId())
+				.deptId(entity.getDeptId())
+				.gender(entity.getGender())
+				.dept(outputObject)
 				.build();
 	}
 	public List<Employee> entitiestoDomain( List<EmployeeDetail>entities)
@@ -35,6 +39,9 @@ public class EmployeeMappers {
 		return new EmployeeDetail().builder()
 				.id(domain.getId())
 				.name(domain.getName())
+				.hotelId(domain.getHotelId())
+				.deptId(domain.getDeptId())
+				.gender(domain.getGender())
 				.dept(domain.getDept())
 				.build();
 	}
@@ -47,6 +54,9 @@ public class EmployeeMappers {
 		return new EmployeeDto().builder()
 				.id(domain.getId())
 				.name(domain.getName())
+				.hotelId(domain.getHotelId())
+				.deptId(domain.getDeptId())
+				.gender(domain.getGender())
 				.dept(domain.getDept())
 				.build();
 	}
@@ -59,6 +69,9 @@ public class EmployeeMappers {
 		return new Employee().builder()
 				.id(dto.getId())
 				.name(dto.getName())
+				.hotelId(dto.getHotelId())
+				.deptId(dto.getDeptId())
+				.gender(dto.getGender())
 				.dept(dto.getDept())
 				.build();
 	}
@@ -71,6 +84,9 @@ public class EmployeeMappers {
 		return new EmployeeDetail().builder()
 				.id(dto.getId())
 				.name(dto.getName())
+				.hotelId(dto.getHotelId())
+				.deptId(dto.getDeptId())
+				.gender(dto.getGender())
 				.dept(dto.getDept())
 				.build();
 	}
@@ -83,6 +99,9 @@ public class EmployeeMappers {
 		return new EmployeeDto().builder()
 				.id(entity.getId())
 				.name(entity.getName())
+				.hotelId(entity.getHotelId())
+				.deptId(entity.getDeptId())
+				.gender(entity.getGender())
 				.dept(entity.getDept())
 				.build();
 	}

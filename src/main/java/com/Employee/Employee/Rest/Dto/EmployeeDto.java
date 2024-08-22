@@ -1,5 +1,7 @@
 package com.Employee.Employee.Rest.Dto;
 
+import com.Employee.Employee.Entities.Department;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,5 +17,8 @@ import lombok.Setter;
 public class EmployeeDto {
 	private Integer id;
 	private String name;
-	private String dept;
+	private Integer hotelId;
+	private Integer deptId;
+	private String gender;
+	private Department dept;
 }
